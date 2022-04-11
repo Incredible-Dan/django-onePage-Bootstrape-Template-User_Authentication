@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+</head>
+<body>
+<h1>Sign up Below</h1>
+
+{% for message in messages %}
+<h5>{{ message }}</h5>
+{% endfor  %}
+
+<form action="register" method="POST">
+    {% csrf_token %}
+    <p>Username:</p>
+    <input type="text" name="username">
+    <p>Email:</p>
+    <input type="email" name="email">
+    <p>Password:</p>
+    <input type="password" name="password">
+    <p>Repeat Password:</p>
+    <input type="password" name="password2"><br>
+    <input type="Submit">
+</form>
+
+</body>
+</html>
